@@ -52,6 +52,7 @@ site-data: \
 	data/national_gdp.yml \
 	data/state_revenues.yml \
 	data/national_federal_production.yml \
+	data/opt_in_state_revenues \
 	data/top_state_products
 
 
@@ -434,7 +435,8 @@ data/land_stats.yml:
 			-c _meta/land_stats.yml \
 			-o _$@
 
-data/opt_in_state_revenues.yml:
+data/opt_in_state_revenues:
+	mkdir -p _$@
 	$(query) --format ndjson " \
 		SELECT \
 			state, year, source, dest, dollars \
@@ -442,7 +444,7 @@ data/opt_in_state_revenues.yml:
 		ORDER BY state, year, dollars DESC" \
 		| $(nestly) --if ndjson \
 			-c _meta/opt_in_state_revenues.yml \
-			-o _$@
+			-o '_$@/{state}.yml'
 
 db: $(db)
 
