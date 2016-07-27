@@ -75,3 +75,9 @@ data-map {
     stroke-width: 1;
   }
 }
+
+.legend-svg.horizontal {
+  .cell text {
+    font-size: 10px;
+  }
+}
