@@ -26,12 +26,21 @@ data-map {
     @include span-columns(8);
     @include omega();
 
-    > * {
+    .svg-container {
       @include span-columns(8);
 
-      &:last-child {
-        @include span-columns(4);
+      &.wide {
+        @include span-columns(12);
         @include omega();
+      }
+    }
+
+    .legend-container {
+      @include span-columns(4);
+      @include omega();
+
+      &.wide {
+        @include span-columns(12);
       }
     }
   }
@@ -74,6 +83,15 @@ data-map {
   .swatch {
     stroke: $neutral-gray;
     stroke-width: 1;
+  }
+}
+
+.legend-container.wide {
+  padding-top: $standard-padding-lite;
+
+  .legend-ownership-svg {
+    width: 100%;
+    height: 100px;
   }
 }
 
