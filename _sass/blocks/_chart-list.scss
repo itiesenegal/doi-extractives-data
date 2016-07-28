@@ -74,7 +74,7 @@
   }
 
   figcaption {
-    @include font-size(0.9375);
+    @include font-size(0.9375); // 15px
 
     font-weight: $weight-light;
     min-height: 100px;
